@@ -196,6 +196,47 @@ dependencies = [
 ]
 
 [[package]]
+name = "angkorvector"
+version = "0.18.0"
+dependencies = [
+ "arboard",
+ "block2 0.6.2",
+ "chrono",
+ "clipboard-win",
+ "craft-print",
+ "craft-update",
+ "craft-window",
+ "eframe",
+ "egui",
+ "image",
+ "log",
+ "muda",
+ "objc2 0.6.5",
+ "objc2-app-kit 0.3.2",
+ "objc2-core-foundation",
+ "objc2-core-text",
+ "objc2-foundation 0.3.2",
+ "pollster 1.0.1",
+ "raw-window-handle",
+ "rfd",
+ "serde_json",
+ "socket2",
+ "vectorcraft-engine",
+ "vectorcraft-text",
+ "vectorcraft-ui-egui",
+ "wayland-backend",
+ "wayland-client",
+ "wayland-protocols",
+ "webbrowser",
+ "windows",
+ "winit",
+ "winresource",
+ "winsafe",
+ "x11rb",
+ "zbus",
+]
+
+[[package]]
 name = "anyhow"
 version = "1.0.104"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6031,47 +6072,6 @@ dependencies = [
  "js-sys",
  "serde_core",
  "wasm-bindgen",
-]
-
-[[package]]
-name = "vectorcraft"
-version = "0.18.0"
-dependencies = [
- "arboard",
- "block2 0.6.2",
- "chrono",
- "clipboard-win",
- "craft-print",
- "craft-update",
- "craft-window",
- "eframe",
- "egui",
- "image",
- "log",
- "muda",
- "objc2 0.6.5",
- "objc2-app-kit 0.3.2",
- "objc2-core-foundation",
- "objc2-core-text",
- "objc2-foundation 0.3.2",
- "pollster 1.0.1",
- "raw-window-handle",
- "rfd",
- "serde_json",
- "socket2",
- "vectorcraft-engine",
- "vectorcraft-text",
- "vectorcraft-ui-egui",
- "wayland-backend",
- "wayland-client",
- "wayland-protocols",
- "webbrowser",
- "windows",
- "winit",
- "winresource",
- "winsafe",
- "x11rb",
- "zbus",
 ]
 
 [[package]]

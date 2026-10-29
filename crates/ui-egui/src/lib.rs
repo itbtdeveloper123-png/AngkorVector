@@ -70,6 +70,7 @@ pub mod unsaved;
 pub mod updates_ui;
 pub mod widgets;
 pub mod workspaces;
+pub mod suite_interop;
 
 mod document_drag;
 #[cfg(test)]

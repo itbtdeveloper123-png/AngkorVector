@@ -90,6 +90,20 @@ pub fn app_bar(app: &mut VectorcraftApp, ui: &mut Ui) {
             let discord = search && room >= ws_w + 8.0 + gap + icon + 10.0 + gap + crate::community::discord_width(ui, false);
             let mut rui = ui.new_child(egui::UiBuilder::new().max_rect(right).layout(egui::Layout::right_to_left(egui::Align::Center)));
             let ui = &mut rui;
+            // Switch to AngkorPix (Photoshop Mode) button
+            let pix_btn = egui::Button::new(
+                egui::RichText::new("🎨 AngkorPix")
+                    .size(11.0)
+                    .color(egui::Color32::from_rgb(220, 220, 225)),
+            )
+            .fill(egui::Color32::from_rgb(38, 42, 50))
+            .corner_radius(egui::CornerRadius::same(4));
+
+            if ui.add(pix_btn).on_hover_text(tl!("Switch to AngkorPix (Adobe Photoshop Mode)")).clicked() {
+                crate::suite_interop::launch_or_focus_angkorpix();
+            }
+            ui.add_space(6.0);
+
             // Workspace switcher: shows the current workspace, opens Window → Workspace.
             let (wr, wresp) = ui.allocate_exact_size(vec2(ws_w, WIDGET_H), Sense::click());
             ui.painter().rect_filled(wr, CornerRadius::same(4), if wresp.hovered() { t.hover } else { t.panel });
@@ -114,7 +128,7 @@ pub fn app_bar(app: &mut VectorcraftApp, ui: &mut Ui) {
                 crate::community::discord_button(app, ui, false);
             }
             if app.services.native_menu.is_some() {
-                let title = ui.painter().layout_no_wrap("VectorCraft".into(), egui::FontId::proportional(13.5), t.text);
+                let title = ui.painter().layout_no_wrap("AngkorVector".into(), egui::FontId::proportional(13.5), t.text);
                 let title_rect = egui::Rect::from_center_size(full.center(), title.size());
                 // Keep the title centered only while the interactive groups leave room for it.
                 if title_rect.left() >= menus_end + 8.0 && title_rect.right() <= ui.min_rect().left() - 8.0 {
@@ -144,7 +158,7 @@ pub fn window_title(app: &VectorcraftApp) -> String {
     app.session
         .active()
         .map(|d| format!("{}{} \u{2014} VectorCraft", if d.is_dirty() { "*" } else { "" }, d.title()))
-        .unwrap_or_else(|| "VectorCraft".into())
+        .unwrap_or_else(|| "AngkorVector".into())
 }
 
 /// Keep the OS window title (and the taskbar / Alt-Tab entry) on the active file. Sends
@@ -266,12 +280,12 @@ mod visual_regressions {
                             _ => None,
                         })
                         .collect();
-                    let title = texts.iter().find(|text| text.galley.job.text == "VectorCraft");
+                    let title = texts.iter().find(|text| text.galley.job.text == "AngkorVector");
                     if width >= 1280.0 {
                         assert!(title.is_some(), "the title remains visible when the header has room");
                     }
                     if let Some(title) = title {
-                        for text in texts.iter().filter(|text| text.galley.job.text != "VectorCraft") {
+                        for text in texts.iter().filter(|text| text.galley.job.text != "AngkorVector") {
                             assert!(
                                 !title.visual_bounding_rect().intersects(text.visual_bounding_rect()),
                                 "{width}: title overlaps {:?}",

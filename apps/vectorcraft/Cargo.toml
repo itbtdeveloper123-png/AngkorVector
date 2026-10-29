@@ -1,10 +1,10 @@
 [package]
-name = "vectorcraft"
+name = "angkorvector"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 publish = false
-default-run = "vectorcraft"
+default-run = "angkorvector"
 
 [lints]
 workspace = true
