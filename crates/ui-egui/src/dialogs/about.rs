@@ -60,7 +60,7 @@ fn about_tab(app: &mut VectorcraftApp, ui: &mut egui::Ui) {
         });
     });
     ui.add_space(12.0);
-    crate::community::links(app, ui);
+
     ui.add_space(12.0);
     ui.label(
         egui::RichText::new(tl!(

@@ -7,6 +7,16 @@ use crate::VectorcraftApp;
 #[cfg(not(target_arch = "wasm32"))]
 use craft_update::updater::{Action, Status, Updater};
 
+pub const ANGKORVECTOR_APP: craft_update::App = craft_update::App {
+    id: "angkorvector",
+    name: "AngkorVector",
+    tagline: "Vector illustration",
+    repo: "itbtdeveloper123-png/AngkorVector",
+    former_ids: &[],
+    former_names: &[],
+    icon_png: None,
+};
+
 pub(crate) struct Runtime {
     #[cfg(not(target_arch = "wasm32"))]
     updater: Updater,
@@ -26,7 +36,7 @@ impl Default for Runtime {
     fn default() -> Self {
         Self {
             #[cfg(not(target_arch = "wasm32"))]
-            updater: Updater::new(&craft_update::suite::VECTORCRAFT, env!("CARGO_PKG_VERSION")),
+            updater: Updater::new(&ANGKORVECTOR_APP, env!("CARGO_PKG_VERSION")),
             #[cfg(not(target_arch = "wasm32"))]
             startup_check: false,
             #[cfg(not(target_arch = "wasm32"))]
