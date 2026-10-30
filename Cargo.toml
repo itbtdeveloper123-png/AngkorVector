@@ -8,7 +8,9 @@ version = "0.18.0"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 rust-version = "1.95"
-repository = "https://github.com/storytold/vectorcraft"
+repository = "https://github.com/itbtdeveloper123-png/AngkorVector"
+homepage = "https://github.com/itbtdeveloper123-png/AngkorVector"
+authors = ["ArtPixels <itbtdeveloper.123@gmail.com>"]
 
 [workspace.dependencies]
 craft-pdf = { git = "https://github.com/storytold/craft-libs", rev = "92d392cff132eaf53e13afff77f38b5c11b73aa0", default-features = false, features = ["interpret", "write"] }
